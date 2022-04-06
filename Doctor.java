@@ -27,6 +27,13 @@ private Long id;
 	private String lastName;
 	@Column(name="specilisation")
 	private String speciliasation;
+	private String password;
+	@Column
+	private String role;
+	
+	@Column
+	private boolean active;
+	
 	public Long getId() {
 		return id;
 	}
@@ -55,12 +62,37 @@ private Long id;
 	public void setSpeciliasation(String speciliasation) {
 		this.speciliasation = speciliasation;
 	}
-	public Doctor(Long id, String firstName, String lastName, String speciliasation) {
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
+	public Doctor(Long id, String firstName, String lastName, String speciliasation, String password, String role,
+			boolean active, List<Patient> patient) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.speciliasation = speciliasation;
+		this.password = password;
+		this.role = role;
+		this.active = active;
+		this.patient = patient;
 	}
 	public Doctor() {
 		super();
