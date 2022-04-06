@@ -49,4 +49,25 @@ private PatientRepository  patientRepository;
 		return null;
 	}
 
+
+	
+	public Patient getPatientById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void deletePatient(long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public List<Patient> getPatientByFirstNameOrLastName(String firstName, String lastName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

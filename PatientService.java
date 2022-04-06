@@ -10,26 +10,20 @@ public interface PatientService {
 
 	List<Patient> getAllPatient();
 
-	static Patient getPatientById(List<Long> id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
+		
 	List<Patient> getPatientByFirstName(String firstName);
 
 	List<Patient> getPatientByFirstNameAndLastName(String firstName, String lastName);
 
+	void deletePatient(long id);
 
-	@Override
-	public List<Patient> getAllPatient() {
-		return patientRepository.findAll();
-		
-	}
+	List<Patient> getPatientByFirstNameOrLastName(String firstName, String lastName);
 
 	static Patient getPatientById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 
 }

@@ -1,13 +1,13 @@
 package com.edu.HMS.entity;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import lombok.Data;
 
@@ -40,9 +40,26 @@ public class Patient {
 	private String disease;
 	@Column(name="doctor_id")
 	private String doctorId;
+	@Column
+	private String password;
+	@Column
+	private String role;
 	
-	@Transient
-	private int count;
+	@Column
+	private boolean active;
+	
+	
+
+    private int count;
+
+	
+	
+	@JoinColumn(name="doctor")
+	@ManyToOne
+	private Doctor doctor;
+	
+	
+//	@JoinTable(name="doctor_patient", joinColumns= { @JoinColumn(name="patient_id")}, inverseJoinColumns= { @JoinColumn(name="doctor_id")})
 
 	public Patient(Long id, String firstName, String lastName, String email, int age, int weight, String gender,
 			int mobileNo, String address, String disease, String doctorId, int count) {
@@ -155,6 +172,30 @@ public class Patient {
 
 	public void setCount(int count) {
 		this.count = count;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	public Patient() {
