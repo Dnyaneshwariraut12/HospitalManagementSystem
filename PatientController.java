@@ -30,7 +30,7 @@ public class PatientController {
 
 	@PostMapping
 	// savePatient(Patient obj)
-	public ResponseEntity<Patient> saveEmployee(@RequestBody Patient patient) {
+	public ResponseEntity<Patient> savePatient(@RequestBody Patient patient) {
 		return new ResponseEntity<Patient>(patientService.savePatient(patient),HttpStatus.CREATED);
 	}
 
@@ -56,8 +56,19 @@ public class PatientController {
 		
 	}
 
-	@GetMapping("/employeeByIds")
+	@GetMapping("/patientByIds")
 	public List<Patient> getPatientByIds(@RequestParam(value="id") List<Long> id){
 		return (List<Patient>) PatientService.getPatientById(id);
+	}
+	@DeleteMapping("{id}")
+	public ResponseEntity<String> deletePatient(@PathVariable("id") long id){
+		patientService.deletePatient(id);
+		return new ResponseEntity<String>("Patient record deleted ",HttpStatus.OK);
+	}
+	@GetMapping("/patientByFirstNameOrLastName")
+	public List<Patient> getPatientByFirstNameOrLastName(@RequestParam("firstName") String firstName, @RequestParam("lastName")  String lastName )
+	{
+		return patientService.getPatientByFirstNameOrLastName(firstName, lastName);
+		
 	}
 }
