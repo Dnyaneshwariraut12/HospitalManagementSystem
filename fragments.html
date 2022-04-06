@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="pageHeader">
+<meta charset="ISO-8859-1">
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  
+  <link th:href="@{/css/main.css}" rel="stylesheet">
+<link th:href="@{/js/main.js}" rel="stylesheet">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+ 
+<body>
+
+<div th:fragment="menu">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#" th:href="@{/}">HOME</a></li>
+      <li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#">PATIENT <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#" th:href="@{/patient/addPatient}">Add patient</a></li>
+          <li><a href="#" th:href="@{/patient/getPatients}">List patient</a></li>
+           <li><a href="#" th:href="@{/doctor/getDoctors}">List Doctor</a></li>
+         
+         
+        </ul>
+      </li>
+      <li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#">DOCTOR<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+           <li><a href="#" th:href="@{add-doctor}">Add doctor</a></li> 
+          <li><a href="#" th:href="@{list-patient}">List patients</a></li>
+         
+        </ul>
+      </li>
+      <li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#">ADMIN<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#" th:href="@{list-patient}">List-patient</a></li> 
+          <li><a href="#" th:href="@{list-doctor}">List-doctor</a></li>
+         
+        </ul>
+      </li>
+      <li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#">ABOUT US<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#" th:href="@{/doctor/SearchDoctor}">Find Doctor</a></li> 
+          
+          <li><a href="#" th:href="@{/Contact}">Contact us</a></li> 
+          
+        </ul>
+      </li>
+      
+    </ul>
+   <ul class="nav navbar-nav navbar-right">
+      <li sec:authorize="!isAuthenticated()">
+      <a th:href="@{/registration}"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+      </li>
+    <li sec:authorize="!isAuthenticated()" class="nav-item">
+            <a class="btn btn-outline-light" th:href="@{/login}">Login</a>
+        </li>
+        <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false" sec:authentication="name">
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           
+                <div class="dropdown-divider"></div>
+                <a class="pl-3 btn btn-outline-light" th:href="@{/logout}">Logout</a>
+            </div>
+        </li>
+    </ul>
+  </div>
+</nav>
+  
+
+
+</div>
+
+    <div th:fragment="middle_bar">
+    
+ <div class="container-fluid">
+
+ 
+  
+
+     <div class="row">
+     <div class="col-md-6">
+     <img  src="pictures/health-plus.jpg " alt=" " style="height:500px;width:100%;">
+     </div>
+     <div class="col-sm-6">
+     <h1 class="col ml-2">WELCOME <br>
+</h1>
+<h3 class="col pt-3 ml-2" style="color:orange;">All About Hospital</h3>
+<p class="col pt-5">
+Hospital is a 300 bed Super Specialty Hospital near  Airport with a clear focus on high end Tertiary & Quaternary care treatments like Cardiac Sciences, Neuro Sciences, Gastro Sciences, Renal Sciences, Pulmonary and Organ Transplant etc. having state-of-the-art Infrastructure including 100 ICU beds, Modular OTs, world class German and American medical equipment, Full Time Consultants and Beautiful Ambience. Our motto is Patient First and every care giver at Charnock Hospital strives to give the best care possible.
+
+</p></div>
+     </div>
+    
+     </div>
+      </div>
+
+
+   </div>
+      <div class="container-fluid">
+    <div class="row" >
+   <div class="col"style="height:300px;width:100%;background-color:black;">  
+<center><h3 class="col text-light pt-2"style="color:white;">Book Appointment</h3>
+
+
+<button type="button" class="btn btn-warning" th:href="@{/Appointment}">click here</button>
+
+
+</center>
+
+<center><h3 class="col text-light pt-2"style="color:white;">View Doctor List</h3>
+
+
+<button type="button" class="btn btn-warning" th:href="@{/list-doctor}">click here</button>
+
+
+</center>
+
+    </div><br>
+    </div>
+  </div>
+        
+    </div>
+
+
+
+<footer class="container-fluid text-center" th:fragment="pageFooter"><br>
+  <p><b><font size ="+3">Feedback</font></b></p>
+</footer>
+<footer>
+  <h3>Mail</h3>
+  <a href="mailto:hospital@123.com">hospital@123.com</a>
+<h3>Contact</h3>
+  <a>1080-974321</a>
+</footer>
+
+</body>
+</html>

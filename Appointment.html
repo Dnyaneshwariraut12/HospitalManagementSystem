@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head  th:insert = "fragments :: pageHeader">
+
+<meta charset="ISO-8859-1">
+<title>Appointment Form</title>
+
+</head>
+<body class = "container">
+<div th:replace="fragments :: menu">        </div>
+<h1 style="color:Orange">Patients Appointment Form</h1>
+<form action="SEND ADDRESS" id="ft-form" method="POST" accept-charset="UTF-8">
+  <fieldset>
+    <legend style="color:Green"><b>For person</b></legend>
+    <label>
+      Name
+      <input type="text" name="name" required>
+    </label><br><br>
+    <div class="two-cols">
+      <label>
+        Email address
+        <input type="email" name="email" required>
+      </label><br><br>
+      <label>
+        Phone number
+        <input type="tel" name="phone">
+      </label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend  style="color:Green"><b>Appointment request</b></legend>
+    
+
+      <div class="tab-pane fade" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-body">
+              
+              <form class="form-group" method="post" action=" ">
+                <div class="row">
+       
+                  <div class="col-md-4"><label for="consultancyfees">
+                                Consultancy Fees
+                              </label></div>
+                              <div class="col-md-8">
+                              <!-- <div id="docFees">Select a doctor</div> -->
+                              <input class="form-control" type="text" name="docFees" id="docFees" readonly="readonly"/>
+                  </div><br><br>
+
+                  <div class="col-md-4"><label>Appointment Date</label></div>
+                  <div class="col-md-8"><input type="date" class="form-control datepicker"   name="appdate"></div><br><br>
+
+                  <div class="col-md-4"><label>Appointment Time</label></div>
+                  <div class="col-md-8">
+                    <!-- <input type="time" class="form-control" name="apptime"> -->
+                    <select name="apptime" class="form-control" id="apptime" required="required" style="color:blue">
+                      <option value="" disabled selected>Select Time</option>
+                      <option value="08:00:00">8:00 AM</option>
+                      <option value="10:00:00">10:00 AM</option>
+                      <option value="12:00:00">12:00 PM</option>
+                      <option value="14:00:00">2:00 PM</option>
+                      <option value="16:00:00">4:00 PM</option>
+                    </select>
+
+                  </div><br><br>
+
+              </form>
+            </div>
+          </div>
+        </div><br>
+      </div>
+      
+    <p>Confirmation requested by</p>
+    <div class="inline">
+      <label>
+        <input type="radio" name="Confirmation requested by" value="email" checked>
+        Email
+      </label>
+      <label>
+        <input type="radio" name="Confirmation requested by" value="phone">
+        Phone call
+      </label>
+    </div>
+  </fieldset>
+  <div class="btns">
+    <input type="text" name="_gotcha" value="" style="display:none;"><br><br>
+    <input type="submit" value="Submit request">
+  </div>
+</form>
+
+
+
+</body>
+</html>

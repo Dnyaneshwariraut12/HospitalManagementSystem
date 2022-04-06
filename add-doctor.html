@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head  th:insert = "fragments :: pageHeader">
+
+<meta charset="ISO-8859-1">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<title>Add Doctor Details</title>
+</head>
+<body class="container">
+
+<div th:replace="fragments :: menu">        </div>
+
+<h1>Add Doctor Details</h1>
+<form th:action="@{/saveDoctor}" th:object="${doctor}" method="post" class="form needs-validation">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input class="form-control" type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
+        <div  th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input class="form-control" type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="text" th:field="*{email}" id="email" placeholder="Email">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    </div>
+    
+    <div class="form-group">
+        <label for="mobileNo">Mobile No.</label>
+        <input class="form-control" type="tel" th:field="*{mobileNo}" id="mobileNo" placeholder="Mobile No.">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('mobileNo')}" th:errors="*{mobileNo}"></div>
+    </div>
+    <div class="form-group">
+        <label for="specialiszation">Specialization</label>
+        <input class="form-control" type="text" th:field="*{specialization}" id="specialization" placeholder="Specialization">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('specialization')}" th:errors="*{specialization}"></div>
+    </div>
+   
+    
+    <input type="submit"  class="btn btn-primary mb-3" value="Add Doctor">
+    <a  th:href = "@{/getDoctor}" class=" btn btn-primary btn-md mb-3 float-right"> Doctor List</a>
+</form>
+
+
+</body>
+</html>
