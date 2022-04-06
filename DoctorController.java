@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edu.HMS.entity.Doctor;
-import com.edu.HMS.entity.Patient;
 import com.edu.HMS.service.DoctorService;
-import com.edu.HMS.service.PatientService;
 
 @RestController
 @RequestMapping("/api/doctor")
