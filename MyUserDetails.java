@@ -5,9 +5,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 import com.edu.HMS.entity.User;
 
-public class MyUserDetails<GrantedAuthority> implements UserDetails {
+public class MyUserDetails implements UserDetails {
 
 	private String userName;
 	private String password;
