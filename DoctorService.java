@@ -2,10 +2,11 @@ package com.edu.HMS.service;
 
 import java.util.List;
 
+
 import org.springframework.stereotype.Service;
 
 import com.edu.HMS.entity.Doctor;
-import com.edu.HMS.entity.Patient;
+
 
 @Service
 public interface DoctorService{
@@ -22,5 +23,7 @@ public interface DoctorService{
 
 
 	void deleteDoctor(long id);
+
+
 
 }

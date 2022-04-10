@@ -65,8 +65,8 @@ public String getAllPatient(Model model) {
 	
 	model.addAttribute("patient", patient);
 	
-    return "list-patient";}
-
+    return "list-patient";
+    }
 
 
 // Department 
@@ -97,7 +97,7 @@ public String addDoctor(@Validated  Doctor doctor, Errors errors, Model model) {
     	
         return "list-doctor";
         }
-    
+   
 }
 
 

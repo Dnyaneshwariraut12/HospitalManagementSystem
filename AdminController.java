@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edu.HMS.entity.Admin;
-import com.edu.HMS.entity.Patient;
 import com.edu.HMS.service.AdminService;
 
 @RestController
